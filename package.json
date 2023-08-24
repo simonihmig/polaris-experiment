@@ -28,8 +28,11 @@
     "start": "pnpm prebuild:dev && concurrently \"npm:start:*\"",
     "start:compat": "ember build --watch",
     "start:dev": "vite",
+    "start:tailwind": "pnpm tailwind:watch",
     "test": "concurrently \"npm:lint\" \"npm:test:*\" --names \"lint,test:\"",
-    "test:ember": "ember test"
+    "test:ember": "ember test",
+    "tailwind:build": "pnpm tailwindcss -c ./config/tailwind/tailwind.config.js -i ./config/tailwind/tailwind-input.css -o ./public/assets/tailwind.css",
+    "tailwind:watch": "pnpm tailwindcss -c ./config/tailwind/tailwind.config.js -i ./config/tailwind/tailwind-input.css -o ./public/assets/tailwind.css --watch"
   },
   "devDependencies": {
     "@babel/core": "^7.22.10",
@@ -86,6 +89,7 @@
     "stylelint": "^15.10.3",
     "stylelint-config-standard": "^34.0.0",
     "stylelint-prettier": "^4.0.2",
+    "tailwindcss": "^3.0.0",
     "tracked-built-ins": "^3.1.1",
     "typescript": "^5.1.6",
     "vite": "^4.4.9"
@@ -110,6 +114,8 @@
     "edition": "octane"
   },
   "dependencies": {
+    "@crowdstrike/ember-toucan-styles": "^2.0.2",
+    "@crowdstrike/tailwind-toucan-base": "^4.0.0",
     "ember-modifier": "^4.1.0",
     "ember-resources": "^6.4.0",
     "tracked-built-ins": "^3.1.1"
